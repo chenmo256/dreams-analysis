@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Analysis</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #form-container { margin-bottom: 20px; }
+        #loading { display: none; }
+        #results { margin-top: 20px; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Dream Analysis Interface</h1>
+    <div id="form-container">
+        <form id="dreamForm">
+            <label for="dreamInput">Describe your dream:</label><br/>
+            <textarea id="dreamInput" rows="4" cols="50" required></textarea><br/>
+            <button type="submit">Analyze Dream</button>
+        </form>
+        <div id="loading">Loading...</div>
+        <div id="results"></div>
+    </div>
+    <script>
+        document.getElementById('dreamForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('results').innerText = '';
+
+            const dreamText = document.getElementById('dreamInput').value;
+            // Simulating an API call with a timeout
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                // Here you would normally display the results from the analysis
+                document.getElementById('results').innerText = 'Dream Analysis Results for: ' + dreamText;
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
